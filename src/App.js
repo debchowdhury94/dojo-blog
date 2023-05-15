@@ -1,17 +1,21 @@
-import './App.css';
+import NavBar from "./NavBar";
+import Home from "./Home";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Create from "./Create";
 
 function App() {
-  const title= "Welcome to the new blog";
-  const likes= 50;
-  const person = {name: "yoshi", age: 30};
   return (
-    <div className="App">
-      <div className="content">
-        <h1>{title}</h1>
-        <p>Liked {likes} times</p>
-        <p>{ person.name } with age {person.age}</p>
+    <Router>
+      <div className="App">
+        <NavBar />
+        <div className="content">
+          <Routes>
+            <Route path="/" element={<Home />}></Route>
+            <Route path="/create" element={<Create />}></Route>
+          </Routes>
+        </div>
       </div>
-    </div>
+    </Router>
   );
 }
 
